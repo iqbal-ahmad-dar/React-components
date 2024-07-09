@@ -1,0 +1,15 @@
+.inputLabel{
+  @apply relative !mb-0 inline-flex items-center py-[5px] text-sm font-semibold text-dark
+}
+.formControl{
+	@apply block h-[32px] w-full rounded-sm border border-solid border-border bg-white px-2.5 py-0 text-sm/[1.5] text-[14px] font-normal text-dark shadow-none placeholder:text-secondary focus:border-focus focus:outline-none;
+}
+/* 
+.form-control-1 {
+	@apply h-8 border-[1px] border-solid border-border px-2.5 text-sm text-dark;
+}
+.form-control {
+	transition:
+		border-color 0.15s ease-in-out,
+		box-shadow 0.15s ease-in-out;
+} */
