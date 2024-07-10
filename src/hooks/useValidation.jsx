@@ -1,5 +1,5 @@
 import { useState } from 'react';
-const useValidation = (type, min, max) => {
+const useValidation = (type, min, max,minLength,maxLength) => {
     const [validationError, setValidationError] = useState('');
     const validateInput = (value) => {
         if (type === 'number') {
@@ -25,7 +25,15 @@ const useValidation = (type, min, max) => {
             } else {
                 setValidationError('');
             }
-        } else {
+        } else if (type === 'text') {
+            if (minLength !== undefined && value.length < minLength) {
+                setValidationError(`Text must be at least ${minLength} characters long`);
+            } else if (maxLength !== undefined && value.length > maxLength) {
+                setValidationError(`Text must be less than or equal to ${maxLength} characters`);
+            } else {
+                setValidationError('');
+            }
+        }else {
             setValidationError('');
         }
     };
