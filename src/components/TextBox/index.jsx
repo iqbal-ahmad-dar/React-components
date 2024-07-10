@@ -1,10 +1,10 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import style from "../../assets/css/TextBox/index.module.css";
-import useValidation from './useValidation';
+import useValidation from '../../hooks/useValidation';
 const propTypes = {
     id: PropTypes.string,
-    labelName: PropTypes.string,
+    label: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
@@ -27,7 +27,7 @@ const propTypes = {
 const TextBox = (
     {
         id,
-        labelName,
+        label,
         value,
         onChange,
         placeholder,
@@ -54,13 +54,12 @@ const TextBox = (
         validateInput(newValue);
         onChange(event);
     };
-
     return (
         <>
             <div className={`mb-2.5`}>
-                {labelName && (
+                {label && (
                     <label htmlFor={id} className={style.inputLabel}>
-                        {labelName}
+                        {label}
                     </label>
                 )}
                 <div>
@@ -93,5 +92,4 @@ const TextBox = (
     );
 };
 TextBox.propTypes = propTypes;
-
 export default TextBox;

@@ -1,15 +1,11 @@
-import React, { useState } from 'react';
-import TestComponents from './components/TestComponents';
+import React from 'react';
+import Form from './Form';
 import './App.css';
-
 function App() {
-  
-
   return (
     <>
-      <TestComponents />
+      <Form />
     </>
   );
 }
-
 export default App;
