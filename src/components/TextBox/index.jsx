@@ -24,15 +24,6 @@ const propTypes = {
     autoFocus: PropTypes.bool,
     name: PropTypes.string
 };
-
-// Default PropTypes  not supported in new release
-// const defaultProps = {
-//     type: 'text',
-//     readOnly: false,
-//     disable: false,
-//     autoFocus: false
-// };
-
 const TextBox = (
     {
         id,
