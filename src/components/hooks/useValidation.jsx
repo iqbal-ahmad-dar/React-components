@@ -1,6 +1,7 @@
 import { useState } from 'react';
 const useValidation = (type, min, max,minLength,maxLength) => {
     const [validationError, setValidationError] = useState('');
+    
     const validateInput = (value) => {
         if (type === 'number') {
             const numericValue = Number(value);

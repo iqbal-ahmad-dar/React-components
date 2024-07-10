@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import TextBox from '../components/TextBox';
-import useValidation from '../hooks/useValidation';
+import useValidation from '../components/hooks/useValidation';
 import ElasticTextBox from '../components/ElasticTextBox';
 const Form = () => {
   const [name, setName] = useState('');

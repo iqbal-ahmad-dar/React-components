@@ -1,5 +1,4 @@
 import React from 'react';
-import {act} from 'react';
 import { render, fireEvent,} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'; 
 import TextBox from './index';
@@ -9,7 +8,7 @@ describe('TextBox component', () => {
         const { getByLabelText, getByPlaceholderText } = render(
             <TextBox
                 id="test-input"
-                labelName="Test Input"
+                label="Test Input"
                 value=""
                 onChange={() => {}}
                 placeholder="Enter text"
@@ -24,7 +23,7 @@ describe('TextBox component', () => {
         const { getByLabelText, getByText } = render(
             <TextBox
                 id="email-input"
-                labelName="Email Input"
+                label="Email Input"
                 value=""
                 onChange={() => {}}
                 placeholder="Enter your email"
@@ -41,7 +40,7 @@ describe('TextBox component', () => {
         const { getByLabelText, getByText } = render(
             <TextBox
                 id="password-input"
-                labelName="Password Input"
+                label="Password Input"
                 value=""
                 onChange={() => {}}
                 placeholder="Enter your password"
