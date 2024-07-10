@@ -1,6 +1,38 @@
+import React, { useRef } from 'react';
+import PropTypes from 'prop-types';
+import style from "../../assets/css/TextBox/index.module.css";
+import useValidation from './useValidation';
+const propTypes = {
+    id: PropTypes.string,
+    labelName: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    onChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string,
+    type: PropTypes.oneOf([
+        'text', 'number', 'email', 'password'
+    ]),
+    readOnly: PropTypes.bool,
+    error: PropTypes.string,
+    success: PropTypes.string,
+    disable: PropTypes.bool,
+    steps: PropTypes.number,
+    min: PropTypes.number,
+    max: PropTypes.number,
+    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func,
+    autoFocus: PropTypes.bool,
+    name: PropTypes.string
+};
 
-import React, { useRef,} from 'react'
-import style from "../../assets/css/TextBox/index.module.css"
+// Default PropTypes  not supported in new release
+// const defaultProps = {
+//     type: 'text',
+//     readOnly: false,
+//     disable: false,
+//     autoFocus: false
+// };
+
 const TextBox = (
     {
         id,
@@ -8,26 +40,29 @@ const TextBox = (
         value,
         onChange,
         placeholder,
-        type,
-        readOnly,
+        type = 'text',
+        readOnly = false,
         error,
         success,
-        disable,
+        disable = false,
         steps,
         min,
         max,
         onClick,
         onFocus,
         onBlur,
-        autoFocus,
+        autoFocus = false,
         name,
         ...props
     }
 ) => {
-    const ref = useRef()
-    const HandleChange = (event) => {
-        onChange(event.target.value)
-    }
+    const ref = useRef();
+    const { validationError, validateInput } = useValidation(type, min, max);
+    const handleChange = (event) => {
+        const newValue = event.target.value;
+        validateInput(newValue);
+        onChange(event);
+    };
 
     return (
         <>
@@ -37,7 +72,7 @@ const TextBox = (
                         {labelName}
                     </label>
                 )}
-                <div className={``}>
+                <div>
                     <input
                         spellCheck="false"
                         id={id}
@@ -46,7 +81,7 @@ const TextBox = (
                         type={type}
                         placeholder={placeholder}
                         className={style.formControl}
-                        onChange={HandleChange}
+                        onChange={handleChange}
                         value={value}
                         readOnly={readOnly}
                         step={steps}
@@ -59,11 +94,13 @@ const TextBox = (
                         autoFocus={autoFocus}
                         {...props}
                     />
-                    {error && <p className="text-danger">{error}</p>}
-                    {success && <p className="text-success">{success}</p>}
+                    {(validationError || error) && <p className="text-danger">{validationError || error}</p>}
+                    {success && !validationError && <p className="text-success">{success}</p>}
                 </div>
             </div>
         </>
-    )
-}
-export default TextBox
+    );
+};
+TextBox.propTypes = propTypes;
+
+export default TextBox;
