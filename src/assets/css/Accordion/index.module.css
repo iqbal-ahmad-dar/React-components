@@ -1,0 +1,3 @@
+.label{
+    @apply relative !mb-0 inline-flex items-center py-[5px] text-sm font-semibold text-dark
+  }
