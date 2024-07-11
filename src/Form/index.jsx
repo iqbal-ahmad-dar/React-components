@@ -3,6 +3,7 @@ import TextBox from '../components/TextBox';
 import useValidation from '../components/hooks/useValidation';
 import ElasticTextBox from '../components/ElasticTextBox';
 import Attachments from '../components/Attachments';
+import CountrySelector from '../components/CountrySelector';
 const Form = () => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -10,6 +11,7 @@ const Form = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('')
   const [file, setFile] = useState([]);
+  
   const { validationError: emailError } = useValidation('email');
   const { validationError: passwordError } = useValidation('password');
   const { validationError: phoneNumberError } = useValidation('number');
@@ -124,6 +126,10 @@ const Form = () => {
             id='File'
             multiple={true}
           />
+        </div>
+        <div className='w-2/3'>
+        <CountrySelector onChange={(country)=>console.log(country)} label={'Selecte COuntry'}/>
+
         </div>
       </form>
     </>
