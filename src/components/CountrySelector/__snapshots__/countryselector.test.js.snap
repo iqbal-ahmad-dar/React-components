@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CountrySelector Component renders correctly 1`] = `
+<div>
+  <div
+    class="relative mb-2.5"
+  >
+    <div
+      class="label"
+    >
+      Select Country
+    </div>
+    <div
+      style="position: relative;"
+    >
+      <div
+        class="formControl "
+        tabindex="0"
+      >
+        <div
+          class="relative flex w-full items-center gap-1.5 h-full"
+        >
+          <div
+            class="flagContainer"
+          >
+            <img
+              alt="img"
+              class="flagImage"
+              src="in.png"
+            />
+          </div>
+          <div
+            class="flex w-full items-center focus:border-none focus:outline-none"
+          >
+            <div
+              class="w-full focus:border-none focus:outline-none"
+              contenteditable="true"
+            >
+              India
+            </div>
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium expandIcon css-i4bv87-MuiSvgIcon-root"
+              data-testid="ExpandMoreIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
