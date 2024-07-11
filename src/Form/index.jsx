@@ -2,17 +2,22 @@ import React, { useState } from 'react'
 import TextBox from '../components/TextBox';
 import useValidation from '../components/hooks/useValidation';
 import ElasticTextBox from '../components/ElasticTextBox';
+import Attachments from '../components/Attachments';
 const Form = () => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('')
+  const [file, setFile] = useState([]);
   const { validationError: emailError } = useValidation('email');
   const { validationError: passwordError } = useValidation('password');
   const { validationError: phoneNumberError } = useValidation('number');
   const { validationError: textError } = useValidation('text');
   const { validationError: messageError } = useValidation('text');
+  const HandleRemove = (files) => {
+    setFile((prev) => prev.filter((file) => file.name !== files.name))
+  }
   return (
     <>
       <form>
@@ -108,6 +113,16 @@ const Form = () => {
             autoFocus={false}
             required={true}
             name="elasticTextInput"
+          />
+        </div>
+        <div className='w-2/3'>
+          <Attachments
+            onSelect={(file) => setFile(file)}
+            onRemove={HandleRemove}
+            files={file}
+            labelName={'Attach'}
+            id='File'
+            multiple={true}
           />
         </div>
       </form>

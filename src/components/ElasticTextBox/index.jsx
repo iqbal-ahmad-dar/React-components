@@ -86,7 +86,7 @@ const ElasticTextBox = forwardRef(
         };
 
         return (
-            <div className="form-group">
+            <div className="mb-2.5">
                 {label && (
                     <label htmlFor={id} className={style.textareaLabel}>
                         {label}

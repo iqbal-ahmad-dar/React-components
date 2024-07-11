@@ -10,6 +10,7 @@ module.exports = {
         complete:'var(--complete)',
         danger:'var(--danger)',
         dark:'var(--dark)',
+        light:'var(--light)',
         white:'var(--white)',
         border:'var(--border-color)',
         focus:'var(--input-focus)',
