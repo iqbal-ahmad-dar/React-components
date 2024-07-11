@@ -2,14 +2,12 @@ import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import ElasticTextBox from '../ElasticTextBox';
-
 describe('ElasticTextBox Component', () => {
     const setup = (props = {}) => {
         const handleChange = jest.fn(); 
         render(<ElasticTextBox {...props} onChange={handleChange} />);
         return { handleChange };
     };
-
     it('renders with label and textarea', () => {
         render(
             <ElasticTextBox id="test-id" label="Elastic Text Input" value="" onChange={jest.fn()} />

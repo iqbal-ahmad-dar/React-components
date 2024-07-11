@@ -47,7 +47,6 @@ const Attachments = ({
 	// selected files will be passed to the callback function(onSelect)
 	const handleFileChange = (event) => {
 		const files = Array.from(event.target.files);
-		// setSelectedFiles((prevFiles) => [...prevFiles, ...files]);
 		onSelect(files);
 	};
 
@@ -64,7 +63,7 @@ const Attachments = ({
 	return (
 		<>
 			<div className="mb-2.5">
-				{label && <label className={labelClassName || style.attachmentLabel}>{label}</label>}
+				{label && <div className={labelClassName || style.attachmentLabel}>{label}</div>}
 				<div className="input-outer">
 					<Button
 						component="label"

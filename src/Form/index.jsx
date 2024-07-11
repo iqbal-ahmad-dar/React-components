@@ -120,7 +120,7 @@ const Form = () => {
             onSelect={(file) => setFile(file)}
             onRemove={HandleRemove}
             files={file}
-            labelName={'Attach'}
+            label={'Attachment'}
             id='File'
             multiple={true}
           />
