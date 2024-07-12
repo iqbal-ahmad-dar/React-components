@@ -1,0 +1,44 @@
+.MuiTelInput-TextField {
+  @apply !w-full !h-8 ;
+}
+
+.MuiInputBase-root {
+  @apply !h-8 !px-2.5;
+}
+
+.Mui-focused {
+  @apply !border-0;
+}
+
+.MuiTelInput-IconButton {
+  @apply !p-0;
+}
+
+.MuiInputBase-input {
+  @apply !p-0;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    @apply !border !border-border !rounded-sm;
+  }
+  
+  .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+    @apply !border !border-border !outline-none;
+  }
+  
+  .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    @apply !border-focus; 
+  }
+  
+  
+  /* .MuiTelInput-IconButton::after {
+    content: '';
+    position: absolute !important;
+    top: 50% !important; 
+    right: -10px !important; 
+    transform: translateY(-50%) !important; 
+    border:  solid transparent;
+    border-width: 5px !important;
+    border-top-color: #333333 !important; 
+  } */
+   

@@ -5,6 +5,7 @@ import ElasticTextBox from '../components/ElasticTextBox';
 import Attachments from '../components/Attachments';
 import CountrySelector from '../components/CountrySelector';
 import Accordions from '../components/Accordions';
+import PhoneSelector from '../components/PhoneSelector';
 const accordionData = [
   {
     title: 'Healthy Eating',
@@ -36,7 +37,7 @@ const Form = () => {
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('')
   const [file, setFile] = useState([]);
-
+  const [contactNumber,setContactNumber]=useState('')
   const { validationError: emailError } = useValidation('email');
   const { validationError: passwordError } = useValidation('password');
   const { validationError: phoneNumberError } = useValidation('number');
@@ -45,6 +46,10 @@ const Form = () => {
   const HandleRemove = (files) => {
     setFile((prev) => prev.filter((file) => file.name !== files.name))
   }
+  const handlePhoneChange = (newPhone) => {
+    setContactNumber(newPhone)
+   
+};
   return (
     <>
       <form>
@@ -161,6 +166,14 @@ const Form = () => {
           accordions={accordionData} 
           label={'Accordion'} 
           />
+        </div>
+        <div>
+            <PhoneSelector
+                label="Phone Number"
+                defaultCountry="CA"
+                value={contactNumber}
+                onChange={handlePhoneChange}
+            />
         </div>
       </form>
     </>
