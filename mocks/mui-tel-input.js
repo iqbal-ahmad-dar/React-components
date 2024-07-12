@@ -1,12 +1,10 @@
-// mocks/mui-tel-input.js
-
 import React from 'react';
-const MockMuiTelInput = ({ value, onChange }) => (
+
+export const MuiTelInput = ({ value, onChange, defaultCountry }) => (
   <input
     data-testid="mock-mui-tel-input"
     value={value}
+    placeholder={defaultCountry}
     onChange={(e) => onChange(e.target.value)}
   />
 );
-
-export default MockMuiTelInput;
