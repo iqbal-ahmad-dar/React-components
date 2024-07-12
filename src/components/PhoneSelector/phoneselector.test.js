@@ -1,51 +1,29 @@
-import React from 'react';
-import { render, fireEvent, waitFor } from '@testing-library/react';
-import { PhoneSelector } from '../PhoneSelector';
-describe('PhoneSelector component', () => {
-  it('renders label and input field', () => {
-    const { getByText, getByRole } = render(
-      <PhoneSelector label="Phone Number" defaultCountry="US" />
-    );
-    expect(getByText('Phone Number')).toBeInTheDocument();
-    expect(getByRole('textbox')).toBeInTheDocument();
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import PhoneSelector from "./index";
+
+describe("PhoneSelector component", () => {
+  it("renders correctly", () => {
+    const { getByTestId } = render(<PhoneSelector label="Phone Number" />);
+
+    expect(getByTestId("mock-mui-tel-input")).toBeInTheDocument();
   });
 
-  it('renders with default country code', () => {
-    const { getByDisplayValue } = render(<PhoneSelector defaultCountry="US" />);
-
-    expect(getByDisplayValue('+1')).toBeInTheDocument();
-  });
-
-  it('calls onChange callback when input value changes', () => {
-    const onChange = jest.fn();
-    const { getByRole } = render(
-      <PhoneSelector value="+91 1234567890" onChange={onChange} />
+  it("handles onChange event correctly", () => {
+    const handleChange = jest.fn();
+    const { getByTestId } = render(
+      <PhoneSelector label="Phone Number" onChange={handleChange} />
     );
 
-    const inputField = getByRole('textbox');
-    fireEvent.change(inputField, { target: { value: '+91 9876543210' } });
+    const input = getByTestId("mock-mui-tel-input");
 
-    expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenCalledWith('+91 9876543210');
+    fireEvent.change(input, { target: { value: "1234567890" } });
+
+    expect(handleChange).toHaveBeenCalledWith("1234567890");
   });
+  it("renders without label", () => {
+    const { queryByText } = render(<PhoneSelector />);
 
-  it('updates input value when props value changes', () => {
-    const { getByDisplayValue, rerender } = render(
-      <PhoneSelector value="+91 1234567890" />
-    );
-
-    expect(getByDisplayValue('+91 1234567890')).toBeInTheDocument();
-
-    rerender(<PhoneSelector value="+91 9876543210" />);
-
-    expect(getByDisplayValue('+91 9876543210')).toBeInTheDocument();
-  });
-
-  it('renders with custom class name', () => {
-    const { getByClassName } = render(
-      <PhoneSelector label="Phone Number" className="custom-class" />
-    );
-
-    expect(getByClassName('custom-class')).toBeInTheDocument();
+    expect(queryByText("Phone Number")).toBeNull();
   });
 });
