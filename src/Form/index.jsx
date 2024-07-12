@@ -167,7 +167,7 @@ const Form = () => {
           label={'Accordion'} 
           />
         </div>
-        <div>
+        <div className='w-2/3'>
             <PhoneSelector
                 label="Phone Number"
                 defaultCountry="CA"

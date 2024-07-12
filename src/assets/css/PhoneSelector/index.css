@@ -29,6 +29,9 @@
   .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     @apply !border-focus; 
   }
+  .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper {
+    @apply !bottom-12  !left-0 !w-full max-w-[350px] !max-h-[200px]
+  }
   
   
   /* .MuiTelInput-IconButton::after {

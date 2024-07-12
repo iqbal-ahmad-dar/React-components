@@ -2,15 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MuiTelInput } from 'mui-tel-input';
 import "../../assets/css/PhoneSelector/index.css";
+const propTypes = {
+    label: PropTypes.string,
+    defaultCountry: PropTypes.string,
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+};
 
 const PhoneSelector = ({
     label,
-    defaultCountry,
-    value,
-    onChange,
-    className,
-    inputProps,
-    ...props
+    defaultCountry='IN',
+    value='91',
+    onChange
 }) => {
     const [phone, setPhone] = React.useState(value || '');
 
@@ -22,32 +25,16 @@ const PhoneSelector = ({
     };
 
     return (
-        <div className={`mb-2.5 ${className}`} {...props}>
+        <div className={`mb-2.5 `}>
             {label && <div className='mb-1'>{label}</div>}
             <MuiTelInput 
                 value={phone}
                 onChange={handleChange}
                 defaultCountry={defaultCountry}
-                {...inputProps}
             />
         </div>
     );
 };
 
-PhoneSelector.propTypes = {
-    label: PropTypes.string,
-    defaultCountry: PropTypes.string,
-    value: PropTypes.string,
-    onChange: PropTypes.func,
-    className: PropTypes.string,
-    inputProps: PropTypes.object,
-};
-
-PhoneSelector.defaultProps = {
-    defaultCountry: 'US',
-    value: '',
-    className: '',
-    inputProps: {},
-};
-
+PhoneSelector.propTypes = propTypes
 export default PhoneSelector;
