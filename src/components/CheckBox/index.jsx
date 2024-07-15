@@ -20,7 +20,7 @@ const Checkbox = ({
 	label,
 	checked,
 	onChange,
-	disabled=false,
+	disabled = false,
 	name,
 	onBlur,
 	onFocus,

@@ -51,6 +51,7 @@ const Form = () => {
   const [checkedItems, setCheckedItems] = useState({});
 
   const handleCheckboxGroupChange = (newCheckedItems) => {
+    console.log(newCheckedItems)
     setCheckedItems(newCheckedItems);
   };
   const HandleRemove = (files) => {

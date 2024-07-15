@@ -26,7 +26,7 @@ const PhoneSelector = ({
 
   return (
     <div className={`mb-2.5`}>
-      {label && <div className="mb-1">{label}</div>}
+      {label && <div className="label">{label}</div>}
       <MuiTelInput 
         value={phone}
         onChange={handleChange}
