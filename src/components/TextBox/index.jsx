@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import style from '../../assets/css/TextBox/index.module.css';
-import useValidation from '../hooks/useValidation';
+import useValidation from '../../hooks/useValidation';
 const propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,

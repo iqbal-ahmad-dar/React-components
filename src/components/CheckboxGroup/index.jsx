@@ -15,7 +15,7 @@ const propTypes = {
 	onChange: PropTypes.func.isRequired,
 	className: PropTypes.string,
 	iconClass: PropTypes.string,
-	groupName: PropTypes.string 
+	headingLabel: PropTypes.string 
 };
 
 const CheckboxGroup = ({
@@ -24,7 +24,7 @@ const CheckboxGroup = ({
 	onChange,
 	className,
 	iconClass,
-	groupName, 
+	headingLabel, 
 }) => {
 	const [checkedItems, setCheckedItems] = useState({});
 
@@ -50,10 +50,10 @@ const CheckboxGroup = ({
 	  }, [checkedItems, onChange]);
 	  
 	return (
-		<div className='relative m-2.5'>
-			{groupName && (
+		<div className='relative mb-2.5'>
+			{headingLabel && (
 				<label className='label'>
-					{groupName} 
+					{headingLabel} 
 				</label>
 			)}
 			<div className={`relative flex list-none  flex-wrap gap-[8px] whitespace-pre-line ${type === 'horizontal' ? '' : 'flex-col'}`}>

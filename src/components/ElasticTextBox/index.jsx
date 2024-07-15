@@ -2,7 +2,7 @@ import React, { useRef, useEffect, forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import autosize from 'autosize';
 import style from '../../assets/css/ElasticTextBox/index.module.css';
-import useValidation from '../hooks/useValidation';
+import useValidation from '../../hooks/useValidation';
 const propTypes = {
     id: PropTypes.string,
     label: PropTypes.string,

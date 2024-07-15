@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import TextBox from '../components/TextBox';
-import useValidation from '../components/hooks/useValidation';
+import useValidation from '../hooks/useValidation';
 import ElasticTextBox from '../components/ElasticTextBox';
 import Attachments from '../components/Attachments';
 import CountrySelector from '../components/CountrySelector';
 import Accordions from '../components/Accordions';
 import PhoneSelector from '../components/PhoneSelector';
 import CheckboxGroup from '../components/CheckboxGroup';
+import RadioGroup from '../components/RadioGroup';
 const accordionData = [
   {
     title: 'Healthy Eating',
@@ -35,6 +36,12 @@ const options = [
   { value: 'checkedB', label: 'Option B', checked: false },
   { value: 'checkedC', label: 'Option C', checked: true },
 ];
+const radioOptions = [
+  { value: 'option1', label: 'Option 1', selected: true },
+  { value: 'option2', label: 'Option 2' },
+  { value: 'option3', label: 'Option 3', disabled: true },
+  { value: 'option4', label: 'Option 4' }
+];
 const Form = () => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -59,8 +66,13 @@ const Form = () => {
   }
   const handlePhoneChange = (newPhone) => {
     setContactNumber(newPhone)
-   
 };
+const [selectedValue, setSelectedValue] = useState(null);
+
+  const handleRadioChange = (value) => {
+    setSelectedValue(value);
+    console.log('Selected value:', value);
+  };
   return (
     <>
       <form>
@@ -188,12 +200,23 @@ const Form = () => {
         </div>
         <div>
       <CheckboxGroup
-      groupName={'Dynamic Checkbox Group with Material-UI'}
+      headingLabel={'Dynamic Checkbox Group with Material-UI'}
         type="horizontal"
         labelPlacement='end'
         options={options}
         onChange={handleCheckboxGroupChange}
         color='primary'
+      />
+     </div>
+     <div>
+     <RadioGroup
+        type="vertical"
+        options={radioOptions}
+        name="exampleRadioGroup"
+        onChange={handleRadioChange}
+        className="custom-radio-class"
+        iconClass="custom-icon-class"
+        headingLabel="Choose an Option"
       />
      </div>
       </form>
