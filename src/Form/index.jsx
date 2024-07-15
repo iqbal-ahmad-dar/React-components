@@ -6,6 +6,7 @@ import Attachments from '../components/Attachments';
 import CountrySelector from '../components/CountrySelector';
 import Accordions from '../components/Accordions';
 import PhoneSelector from '../components/PhoneSelector';
+import CheckboxGroup from '../components/CheckboxGroup';
 const accordionData = [
   {
     title: 'Healthy Eating',
@@ -29,7 +30,11 @@ const accordionData = [
   }
  
 ];
-
+const options = [
+  { value: 'checkedA', label: 'Option A', checked: true },
+  { value: 'checkedB', label: 'Option B', checked: false },
+  { value: 'checkedC', label: 'Option C', checked: true },
+];
 const Form = () => {
   const [name, setName] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -43,6 +48,11 @@ const Form = () => {
   const { validationError: phoneNumberError } = useValidation('number');
   const { validationError: textError } = useValidation('text');
   const { validationError: messageError } = useValidation('text');
+  const [checkedItems, setCheckedItems] = useState({});
+
+  const handleCheckboxGroupChange = (newCheckedItems) => {
+    setCheckedItems(newCheckedItems);
+  };
   const HandleRemove = (files) => {
     setFile((prev) => prev.filter((file) => file.name !== files.name))
   }
@@ -175,6 +185,16 @@ const Form = () => {
                 onChange={handlePhoneChange}
             />
         </div>
+        <div>
+      <CheckboxGroup
+      groupName={'Dynamic Checkbox Group with Material-UI'}
+        type="horizontal"
+        labelPlacement='end'
+        options={options}
+        onChange={handleCheckboxGroupChange}
+        color='primary'
+      />
+     </div>
       </form>
     </>
   )

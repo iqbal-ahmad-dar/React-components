@@ -1,0 +1,115 @@
+.chk .checkmark {
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	height: 11px;
+	width: 6px;
+	border: 2px solid white;
+	border-top: 0;
+	border-left: 0;
+	transform: rotate(45deg);
+}
+
+.simple-checkmark {
+	position: absolute;
+	top: 3.3px;
+	left: 7px;
+	height: 11px;
+	width: 6px;
+	border: 2px solid white;
+	border-top: 0;
+	border-left: 0;
+	transform: rotate(45deg);
+}
+.inverse-checkmark {
+	position: absolute;
+	top: 3px;
+	left: 7px;
+	height: 11px;
+	width: 6px;
+	border: 2px solid #7252d3;
+	border-top: 0;
+	border-left: 0;
+	transform: rotate(45deg);
+}
+.label{
+    @apply relative !mb-0 inline-flex items-center py-[5px] text-sm font-semibold text-dark
+  }
+.check-square {
+	@apply relative top-0 mb-0 h-[20px] w-5 min-w-[20px] cursor-pointer appearance-none rounded-[2px] border border-solid border-[#323130] text-[14px] outline-none checked:relative checked:border-none checked:bg-primary;
+}
+
+.simple-check-square {
+	@apply relative mb-0 h-[20px] w-5 cursor-pointer appearance-none rounded-[2px] border border-solid border-[#323130] text-[14px] outline-none checked:relative checked:border-none checked:bg-primary;
+}
+
+.inverse-check-square {
+	@apply relative mb-0 h-[20px] w-5 cursor-pointer appearance-none rounded-[2px] border border-solid border-[#323130] text-[14px] outline-none checked:relative checked:border-[#7252d3] checked:bg-white;
+}
+
+.inverse-check-square-purple {
+	@apply relative mb-0 h-[20px] w-5 cursor-pointer appearance-none rounded-[2px] border border-solid border-[#7252d3] text-[14px] outline-none checked:relative checked:border-[#7252d3] checked:bg-white;
+}
+.inverse:checked::before {
+	@apply absolute right-1 top-[2px] rotate-1 transform text-[14px] text-primary;
+}
+.check-square:checked::before {
+	@apply absolute right-1 top-[2px] rotate-1 transform text-[14px] text-white;
+}
+
+.check-circle,
+.radio-circle {
+	@apply relative top-0 mb-0   h-5 w-5  cursor-pointer  appearance-none !rounded-full border-[1px] border-solid border-[#323130] text-[14px]  outline-none;
+}
+
+.circle-tick-checkmark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 11px;
+	width: 6px;
+	border: 2px solid Green;
+	border-top: 0;
+	border-left: 0;
+	transform: translate(-50%, -62%) rotate(45deg);
+}
+
+.circle-cross-checkmark {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	border: 0;
+	/* background: transparent url('../../img/close-mark.png') center/cover !important; */
+	width: 10px;
+	height: 10px;
+	transform: translate(-50%, -50%);
+}
+
+.circle-not-checkmark {
+	position: absolute;
+	height: 9px;
+	width: 2px;
+	background-color: #999999;
+	left: 9px;
+	top: 4px;
+	border: '2px';
+}
+
+.circle-not-checkmark::before {
+	content: '';
+	position: absolute;
+	height: 2px;
+	width: 2px;
+	background-color: #999999;
+	left: 0px;
+	bottom: -3px;
+}
+.check-circle-green:checked {
+	@apply border-[#359900];
+}
+.check-circle-red:checked {
+	@apply border-[#f44336];
+}
+.check-circle-dark:checked {
+	@apply border-[#999999];
+}
