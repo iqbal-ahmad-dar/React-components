@@ -1,13 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MuiTelInput } from 'mui-tel-input';
 import "../../assets/css/PhoneSelector/index.css";
-const propTypes = {
-  label: PropTypes.string,
-  defaultCountry: PropTypes.string,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
-};
 
 const PhoneSelector = ({
   label,
@@ -24,10 +17,18 @@ const PhoneSelector = ({
     }
   };
 
+  const PhoneInput = React.useMemo(() => {
+    if (typeof window !== 'undefined') {
+      const { MuiTelInput } = require('mui-tel-input');
+      return MuiTelInput;
+    }
+    return () => <div>Loading...</div>; // or return null for SSR
+  }, []);
+
   return (
     <div className={`mb-2.5`}>
       {label && <div className="label">{label}</div>}
-      <MuiTelInput 
+      <PhoneInput
         value={phone}
         onChange={handleChange}
         defaultCountry={defaultCountry}
@@ -36,5 +37,11 @@ const PhoneSelector = ({
   );
 };
 
-PhoneSelector.propTypes = propTypes;
+PhoneSelector.propTypes = {
+  label: PropTypes.string,
+  defaultCountry: PropTypes.string,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
 export default PhoneSelector;
