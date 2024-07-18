@@ -1,49 +1,42 @@
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const { StaticRouter } = require('react-router-dom/server');
-const App = require('../src/App');
-const app = express();
-// Read the HTML template
-const templatePath = path.resolve(__dirname, '../build/index.html');
-let template = fs.readFileSync(templatePath, 'utf8');
-// Function to inject CSS and JS links into the template
-const injectAssets = (template) => {
-  const cssFiles = fs.readdirSync(path.resolve(__dirname, '../build/static/css'))
-    .filter(file => file.endsWith('.css'))
-    .map(file => `<link href="/static/css/${file}" rel="stylesheet">`)
-    .join('\n');
-    console.log('cssFiles',cssFiles)
-  const jsFiles = fs.readdirSync(path.resolve(__dirname, '../build/static/js'))
-    .filter(file => file.endsWith('.js'))
-    .map(file => `<script src="/static/js/${file}" defer></script>`)
-    .join('\n');
+// server/server.js
+import path from 'path';
+import fs from 'fs';
+import express from 'express';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import App from '../src/App';
 
-  return template.replace('</head>', `${cssFiles}</head>`)
-                 .replace('</body>', `${jsFiles}</body>`);
+import tailwindCss from '../styles/tailwind.css';
+
+const PORT = 8080;
+const app = express();
+const router = express.Router();
+
+const serverRenderedContent = (req, res, next) => {
+  fs.readFile(path.resolve('./build/index.html'), 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      return res.status(500).send('got error');
+    }
+
+    const html = ReactDOMServer.renderToString(<App />);
+    const styles = `<style>${tailwindCss}</style>`; 
+
+    return res.send(
+      data.replace(
+        '<div id="root"></div>',
+        `<div id="root">${html}</div>${styles}` 
+      )
+    );
+  });
 };
 
-template = injectAssets(template);
+router.use('^/$', serverRenderedContent);
 
-app.use(express.static(path.resolve(__dirname, '../build')));
-
-app.get('/*', (req, res) => {
-  const context = {};
-
-  const html = ReactDOMServer.renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <App />
-    </StaticRouter>
-  );
-
-  const finalHtml = template.replace('<div id="root"></div>', `<div id="root">${html}</div>`);
-
-  res.status(200).send(finalHtml);
-});
-
-const PORT = process.env.PORT || 3002;
+router.use(
+  express.static(path.resolve(__dirname, '..', 'build'), { maxAge: '20d' })
+);
+app.use(router);
 app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
+  console.log(`SSR running on port ${PORT}`);
 });
