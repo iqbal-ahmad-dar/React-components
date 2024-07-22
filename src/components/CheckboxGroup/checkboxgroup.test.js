@@ -5,7 +5,7 @@ const mockOnChange = jest.fn();
 const options = [
   { value: 'option1', label: 'Option 1', checked: true },
   { value: 'option2', label: 'Option 2', checked: false },
-  { value: 'option3', label: 'Option 3', checked: false }
+  { value: 'option3', label: 'Option 3', checked: false },
 ];
 describe('CheckboxGroup Component', () => {
   it('renders CheckboxGroup component without crashing', () => {
@@ -27,7 +27,7 @@ describe('CheckboxGroup Component', () => {
       />
     );
 
-    options.forEach(option => {
+    options.forEach((option) => {
       const checkbox = getByLabelText(option.label);
       expect(checkbox).toBeInTheDocument();
     });
@@ -47,10 +47,8 @@ describe('CheckboxGroup Component', () => {
       expect(mockOnChange).toHaveBeenCalledWith({
         option1: true,
         option2: true,
-        option3: false  
+        option3: false,
       });
     }, 0);
   });
-  
-  
 });

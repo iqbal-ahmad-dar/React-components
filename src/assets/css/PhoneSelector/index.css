@@ -1,8 +1,8 @@
-.label{
-  @apply relative !mb-0 inline-flex items-center py-[5px] text-sm font-semibold text-dark
+.label {
+  @apply relative !mb-0 inline-flex items-center py-[5px] text-sm font-semibold text-dark;
 }
 .MuiTelInput-TextField {
-  @apply !w-full !h-8 ;
+  @apply !w-full !h-8;
 }
 
 .MuiInputBase-root {
@@ -22,22 +22,21 @@
 }
 
 .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
-    @apply !border !border-border !rounded-sm;
-  }
-  
-  .MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
-    @apply !border !border-border !outline-none;
-  }
-  
-  .MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
-    @apply !border-focus; 
-  }
-  .MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper {
-    @apply !bottom-12  !left-0 !w-full max-w-[350px] !max-h-[200px]
-  }
-  
-  
-  /* .MuiTelInput-IconButton::after {
+  @apply !border !border-border !rounded-sm;
+}
+
+.MuiInputBase-root:hover .MuiOutlinedInput-notchedOutline {
+  @apply !border !border-border !outline-none;
+}
+
+.MuiInputBase-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  @apply !border-focus;
+}
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-rounded.MuiPopover-paper.MuiMenu-paper.MuiMenu-paper {
+  @apply !max-h-[200px];
+}
+
+/* .MuiTelInput-IconButton::after {
     content: '';
     position: absolute !important;
     top: 50% !important; 
@@ -47,4 +46,3 @@
     border-width: 5px !important;
     border-top-color: #333333 !important; 
   } */
-   

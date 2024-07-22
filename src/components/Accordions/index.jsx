@@ -5,7 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import style from "../../assets/css/Accordion/index.module.css"
+import style from '../../assets/css/Accordion/index.module.css';
 const propTypes = {
   accordions: PropTypes.arrayOf(
     PropTypes.shape({
@@ -26,7 +26,7 @@ const Accordions = ({ accordions = [], label }) => {
     return null;
   }
   return (
-    <div className='mb-2.5'>
+    <div className="mb-2.5">
       {label && <label className={style.label}>{label}</label>}
 
       {accordions.map((accordion, index) => (

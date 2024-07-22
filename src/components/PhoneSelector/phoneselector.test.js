@@ -17,7 +17,7 @@ jest.mock('mui-tel-input', () => ({
 describe('PhoneSelector component', () => {
   it('renders correctly', () => {
     const { getByTestId } = render(<PhoneSelector label="Phone Number" />);
-    
+
     expect(getByTestId('mock-mui-tel-input')).toBeInTheDocument();
   });
 
@@ -35,13 +35,18 @@ describe('PhoneSelector component', () => {
 
   it('renders without label', () => {
     const { queryByText } = render(<PhoneSelector />);
-    
+
     expect(queryByText('Phone Number')).toBeNull();
   });
 
   it('displays default country correctly', () => {
-    const { getByTestId } = render(<PhoneSelector label="Phone Number" defaultCountry="US" />);
-    
-    expect(getByTestId('mock-mui-tel-input')).toHaveAttribute('placeholder', 'US');
+    const { getByTestId } = render(
+      <PhoneSelector label="Phone Number" defaultCountry="US" />
+    );
+
+    expect(getByTestId('mock-mui-tel-input')).toHaveAttribute(
+      'placeholder',
+      'US'
+    );
   });
 });

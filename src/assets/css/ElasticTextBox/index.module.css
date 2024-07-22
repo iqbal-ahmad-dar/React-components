@@ -1,6 +1,6 @@
 .formControl {
-	@apply h-auto min-h-[68px] !resize-none !p-2.5 block w-full rounded-sm border border-solid border-border bg-white  text-sm/[1.5] text-[14px] font-normal text-dark shadow-none placeholder:text-secondary focus:border-focus focus:outline-none;
+  @apply h-auto min-h-[68px] !resize-none !p-2.5 block w-full rounded-sm border border-solid border-border bg-white  text-sm/[1.5] text-[14px] font-normal text-dark shadow-none placeholder:text-secondary focus:border-focus focus:outline-none;
 }
-.textareaLabel{
-    @apply relative !mb-0 inline-flex items-center py-[5px] text-sm font-semibold text-dark
-  }
+.textareaLabel {
+  @apply relative !mb-0 inline-flex items-center py-[5px] text-sm font-semibold text-dark;
+}

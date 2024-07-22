@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import "../../assets/css/PhoneSelector/index.css";
+import '../../assets/css/PhoneSelector/index.css';
 
 const PhoneSelector = ({
   label,

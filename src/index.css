@@ -2,25 +2,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root{
---primary:#7252d3;
---secondary:#3b4752;
---complete:#0072ec;
---success:#19ad79;
---danger:#d83c31;
---dark:#444444;
---white:#fff;
---light:[#f5f5f5];
---border-color:#A3A2A0;
---input-focus:#2D3047;
+:root {
+  --primary: #7252d3;
+  --secondary: #3b4752;
+  --complete: #0072ec;
+  --success: #19ad79;
+  --danger: #d83c31;
+  --dark: #444444;
+  --white: #fff;
+  --light: [#f5f5f5];
+  --border-color: #a3a2a0;
+  --input-focus: #2d3047;
 }
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    background: transparent;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  background: transparent;
 }
-.MuiPaper-root,.MuiTypography-root.MuiTypography-body1 {
-    font-family: 'Poppins', sans-serif !important;
+.MuiPaper-root,
+.MuiTypography-root.MuiTypography-body1 {
+  font-family: 'Poppins', sans-serif !important;
 }

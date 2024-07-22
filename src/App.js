@@ -1,11 +1,13 @@
 import React from 'react';
 import Form from './Form';
-import './App.css';
-function App() {
+const App = ({ _insertCss }) => {
+  if (_insertCss) {
+    _insertCss();
+  }
   return (
     <>
-      <Form />    
+      <Form />
     </>
   );
-}
+};
 export default App;
